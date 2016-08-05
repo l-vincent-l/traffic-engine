@@ -259,8 +259,9 @@ public class OSMDataStore {
 
 			if (!vexUrl.endsWith("/"))
 				vexUrl += "/";
-
-			vexUrl += String.format("%.6f,%.6f,%.6f,%.6f.pbf", south, west, north, east);
+			StringBuilder sb = new StringBuilder();
+			Formatter formatter = new Formatter(sb, Locale.US);
+			vexUrl += formatter.format("%.6f,%.6f,%.6f,%.6f.pbf", south, west, north, east);
 
 			HttpURLConnection conn;
 
